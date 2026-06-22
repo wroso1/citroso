@@ -59,7 +59,7 @@ body {
   background: url('fondo.jpg') repeat-y center top;
   background-size: cover;
   opacity: 0.93;
-  will-change: auto;
+  will-change: background-position;
 }
 .infinite-bg::after {
   content: '';
@@ -563,7 +563,7 @@ let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
-      bg.style.transform = `translateY(${-window.scrollY * 0.35}px)`;
+      bg.style.backgroundPositionY = `${-window.scrollY * 0.35}px`;
       ticking = false;
     });
     ticking = true;
