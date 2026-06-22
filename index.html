@@ -54,12 +54,10 @@ body {
 
 .infinite-bg {
   position: fixed; top: 0; left: 0;
-  width: 100%; height: 250%;
+  width: 100%; height: 100%;
   z-index: 0;
-  background: url('fondo.jpg') repeat-y center top;
-  background-size: cover;
+  background: url('fondo.jpg') center top / cover no-repeat;
   opacity: 0.93;
-  will-change: background-position;
 }
 .infinite-bg::after {
   content: '';
@@ -556,19 +554,6 @@ footer p { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
 <script>
 // === CART STATE ===
 let cart = {};
-
-// === SCROLL PARALLAX ===
-const bg = document.querySelector('.infinite-bg');
-let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      bg.style.backgroundPositionY = `${-window.scrollY * 0.35}px`;
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
 
 // === PARTICLES ===
 const canvas = document.getElementById('particles-canvas');
